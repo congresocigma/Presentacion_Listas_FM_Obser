@@ -1,1 +1,1034 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Presentación de Listas | Franja Morada Observatorio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --granate: #75002F;
+      --granate-oscuro: #310713;
+      --granate-profundo: #21050D;
+      --granate-claro: #A44A68;
+      --blanco: #FFFFFF;
+      --crema: #FAF7F8;
+      --rosa: #F2E8EC;
+      --gris: #696168;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--crema);
+      color: var(--granate-oscuro);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* NAVEGACIÓN */
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 30px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* PORTADA */
+
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 24px 85px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(25,3,10,.86) 0%,
+          rgba(65,5,25,.77) 48%,
+          rgba(29,3,12,.93) 100%
+        ),
+        url('./observatorio.jpg');
+
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .hero-logo {
+      width: 240px;
+      max-width: 65%;
+      margin-bottom: 45px;
+      mix-blend-mode: screen;
+      border-radius: 8px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 7vw, 100px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 38px;
+      color: rgba(255,255,255,.8);
+    }
+
+    .hero-divider {
+      width: 65px;
+      height: 1px;
+      background: rgba(255,255,255,.7);
+      margin: 0 auto 35px;
+    }
+
+    .hero-details {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+      margin-bottom: 45px;
+      font-size: 14px;
+    }
+
+    .hero-details span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: var(--granate);
+      color: white;
+      padding: 18px 35px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: .3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #95003E;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      font-size: 24px;
+      opacity: .75;
+      animation: bounce 2s infinite;
+    }
+
+    /* SECCIONES */
+
+    section {
+      padding: 110px 8%;
+    }
+
+    .section-container {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--granate);
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 65px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 30px;
+    }
+
+    .section-text {
+      font-size: 17px;
+      color: var(--gris);
+      line-height: 1.9;
+      max-width: 750px;
+    }
+
+    /* ENCUENTRO */
+
+    .encuentro {
+      background: white;
+    }
+
+    .event-info {
+      margin-top: 45px;
+      background: var(--crema);
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      padding: 35px;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .info-item {
+      padding: 10px;
+    }
+
+    .info-icon {
+      font-size: 27px;
+      margin-bottom: 12px;
+      color: var(--granate);
+    }
+
+    .info-item h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .info-item p {
+      font-size: 13px;
+      color: var(--gris);
+    }
+
+    .quote {
+      margin-top: 70px;
+      padding: 50px 35px;
+      border-left: 3px solid var(--granate);
+      background: var(--crema);
+    }
+
+    .quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.4;
+    }
+
+    /* FORMULARIO */
+
+    .confirmacion {
+      background: var(--crema);
+    }
+
+    .form-wrapper {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .form-intro {
+      margin-bottom: 45px;
+    }
+
+    .form-card {
+      background: white;
+      padding: 45px;
+      border-radius: 22px;
+      box-shadow: 0 15px 55px rgba(49,7,19,.07);
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border: 1px solid #E2D9DE;
+      background: #FCFAFB;
+      padding: 15px 17px;
+      border-radius: 11px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: .3s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--granate);
+      box-shadow: 0 0 0 3px rgba(117,0,47,.08);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 17px;
+      border: 1px solid #E7DEE2;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .option:hover {
+      border-color: var(--granate);
+      background: #FCF6F8;
+    }
+
+    .option input {
+      accent-color: var(--granate);
+      width: 17px;
+      height: 17px;
+    }
+
+    .option span {
+      font-size: 14px;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .form-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--gris);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    #diet-section {
+      display: none;
+    }
+
+    #diet-section.visible {
+      display: block;
+    }
+
+    /* MENSAJE DE ÉXITO */
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 35px 15px;
+    }
+
+    .success-message h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .success-message p {
+      color: var(--gris);
+      line-height: 1.8;
+    }
+
+    .success-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: var(--granate);
+    }
+
+    /* CIERRE */
+
+    .closing {
+      background:
+        linear-gradient(
+          rgba(30,3,12,.92),
+          rgba(60,5,24,.94)
+        ),
+        url('./observatorio.jpg');
+
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
+      padding: 110px 25px;
+    }
+
+    .closing h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(35px, 5vw, 65px);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 25px;
+    }
+
+    .closing p {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: .75;
+    }
+
+    footer {
+      background: var(--granate-profundo);
+      color: rgba(255,255,255,.55);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 12px;
+    }
+
+    /* ANIMACIONES */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 25px 6%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-logo {
+        width: 195px;
+        margin-bottom: 35px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero-details {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+
+      .event-info {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+
+      .info-item {
+        padding: 15px;
+        border-bottom: 1px solid #E7DDE2;
+      }
+
+      .info-item:last-child {
+        border-bottom: none;
+      }
+
+      .form-card {
+        padding: 27px 20px;
+      }
+
+      .quote {
+        padding: 30px 25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-content { animation: none; }
+      .scroll-indicator { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+      FRANJA MORADA · OBSERVATORIO
+    </div>
+
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#encuentro">El encuentro</a>
+      <a href="#confirmar">Confirmar</a>
+    </div>
+  </nav>
+
+
+  <!-- PORTADA -->
+
+  <header class="hero" id="inicio">
+
+    <div class="hero-content">
+
+      <img
+        src="./logo-franja.jpg"
+        alt="Franja Morada Observatorio"
+        class="hero-logo"
+      >
+
+      <p class="eyebrow">
+        Presentación de listas 2026
+      </p>
+
+      <h1>
+        Un nuevo<br>
+        capítulo comienza.
+      </h1>
+
+      <div class="hero-divider"></div>
+
+      <p class="hero-subtitle">
+        Nos encontramos para seguir construyendo
+      </p>
+
+      <div class="hero-details">
+        <span>◷ Sábado 17 de octubre</span>
+        <span>◷ 18:00 hs</span>
+        <span>⌖ Salón Comedor</span>
+      </div>
+
+      <a href="#confirmar" class="btn">
+        Confirmá tu asistencia →
+      </a>
+
+    </div>
+
+    <div class="scroll-indicator">
+      ↓
+    </div>
+
+  </header>
+
+
+  <!-- EL ENCUENTRO -->
+
+  <section class="encuentro" id="encuentro">
+
+    <div class="section-container reveal">
+
+      <p class="section-label">
+        El encuentro
+      </p>
+
+      <h2 class="section-title">
+        Nos encontramos<br>
+        para seguir construyendo.
+      </h2>
+
+      <p class="section-text">
+        Te invitamos a compartir la presentación de listas
+        de Franja Morada Observatorio.
+
+        Un encuentro para reunirnos, compartir lo que
+        venimos construyendo y presentar a quienes
+        van a asumir nuevos desafíos en esta etapa.
+
+        Porque cada paso que damos es parte de
+        un camino colectivo que seguimos construyendo.
+      </p>
+
+      <div class="event-info">
+
+        <div class="info-item">
+          <div class="info-icon">▣</div>
+          <h3>Sábado 17 de octubre</h3>
+          <p>2026</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">◷</div>
+          <h3>18:00 hs</h3>
+          <p>Te esperamos puntual</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">⌖</div>
+          <h3>Salón Comedor</h3>
+          <p>Facultad</p>
+        </div>
+
+      </div>
+
+      <div class="quote">
+        <p>
+          “Mismas convicciones,<br>
+          nuevos desafíos.”
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONFIRMACIÓN -->
+
+  <section class="confirmacion" id="confirmar">
+
+    <div class="form-wrapper">
+
+      <div class="form-intro reveal">
+
+        <p class="section-label">
+          Confirmá tu asistencia
+        </p>
+
+        <h2 class="section-title">
+          Contanos si venís.
+        </h2>
+
+        <p class="section-text">
+          Para organizar mejor el encuentro,
+          te pedimos que completes este breve formulario.
+        </p>
+
+      </div>
+
+
+      <div class="form-card reveal">
+
+        <form id="rsvp-form">
+
+          <!-- NOMBRE -->
+
+          <div class="form-group">
+
+            <label class="form-label" for="nombre">
+              Nombre y apellido *
+            </label>
+
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              class="form-input"
+              placeholder="Tu nombre completo"
+              required
+            >
+
+          </div>
+
+
+          <!-- ASISTENCIA -->
+
+          <div class="form-group">
+
+            <label class="form-label">
+              ¿Vas a acompañarnos? *
+            </label>
+
+            <div class="options">
+
+              <label class="option">
+                <input
+                  type="radio"
+                  name="asistencia"
+                  value="Sí"
+                  required
+                >
+                <span>¡Sí, ahí voy!</span>
+              </label>
+
+              <label class="option">
+                <input
+                  type="radio"
+                  name="asistencia"
+                  value="No"
+                >
+                <span>Esta vez no puedo</span>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- ALIMENTACIÓN -->
+
+          <div class="form-group" id="diet-section">
+
+            <label class="form-label">
+              ¿Tenés alguna preferencia o restricción alimentaria?
+            </label>
+
+            <div class="options">
+
+              <label class="option">
+                <input type="radio" name="alimentacion" value="Ninguna">
+                <span>Ninguna</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="alimentacion" value="Vegetariana">
+                <span>Vegetariana</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="alimentacion" value="Vegana">
+                <span>Vegana</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="alimentacion" value="Sin TACC">
+                <span>Sin TACC</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="alimentacion" value="Otra">
+                <span>Otra</span>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- COMENTARIOS -->
+
+          <div class="form-group">
+
+            <label class="form-label" for="comentarios">
+              Comentarios adicionales (opcional)
+            </label>
+
+            <textarea
+              id="comentarios"
+              name="comentarios"
+              class="form-textarea"
+              placeholder="Contanos si hay algo más que debamos tener en cuenta..."
+            ></textarea>
+
+          </div>
+
+
+          <!-- ENVIAR -->
+
+          <button
+            type="submit"
+            class="btn form-submit"
+            id="submit-btn"
+          >
+            Enviar confirmación →
+          </button>
+
+          <p class="form-note" id="form-status" role="status" aria-live="polite">
+            Tus respuestas nos ayudan a organizar el encuentro.
+          </p>
+
+        </form>
+
+
+        <!-- ÉXITO -->
+
+        <div class="success-message" id="success-message">
+
+          <div class="success-icon">
+            ✓
+          </div>
+
+          <h3>
+            ¡Gracias por responder!
+          </h3>
+
+          <p id="success-text">
+            Recibimos tu respuesta.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CIERRE -->
+
+  <section class="closing">
+
+    <div class="reveal">
+
+      <h2>
+        Mismas convicciones,<br>
+        nuevos desafíos.
+      </h2>
+
+      <p>
+        Franja Morada Observatorio
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    Franja Morada Observatorio · 2026
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    /* ANIMACIONES AL HACER SCROLL */
+
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealElements.forEach(el => observer.observe(el));
+
+
+    /* MOSTRAR PREFERENCIAS ALIMENTARIAS */
+
+    const attendanceInputs = document.querySelectorAll(
+      'input[name="asistencia"]'
+    );
+
+    const dietSection = document.getElementById('diet-section');
+
+    attendanceInputs.forEach(input => {
+      input.addEventListener('change', () => {
+
+        const selected = document.querySelector(
+          'input[name="asistencia"]:checked'
+        );
+
+        if (selected && selected.value === 'Sí') {
+          dietSection.classList.add('visible');
+        } else {
+          dietSection.classList.remove('visible');
+
+          document.querySelectorAll(
+            'input[name="alimentacion"]'
+          ).forEach(radio => radio.checked = false);
+        }
+
+      });
+    });
+
+
+    /* ENVÍO DEL FORMULARIO */
+
+    // IMPORTANTE:
+    // Reemplazá esta URL por la de tu implementación
+    // de Google Apps Script cuando la tengas.
+    const SCRIPT_URL = '';
+
+    const form = document.getElementById('rsvp-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formStatus = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (event) => {
+
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+
+      const asistencia = document.querySelector(
+        'input[name="asistencia"]:checked'
+      )?.value || '';
+
+      const alimentacion = asistencia === 'Sí'
+        ? (document.querySelector(
+            'input[name="alimentacion"]:checked'
+          )?.value || 'No indicada')
+        : 'No corresponde';
+
+      const comentarios = document.getElementById('comentarios').value.trim();
+
+      if (!nombre || !asistencia) {
+        formStatus.textContent = 'Completá los campos obligatorios.';
+        return;
+      }
+
+      if (!SCRIPT_URL) {
+        formStatus.textContent =
+          'El formulario todavía no está conectado. Falta configurar Google Sheets para guardar las respuestas.';
+        return;
+      }
+
+      const datos = {
+        nombre,
+        asistencia,
+        alimentacion,
+        comentarios
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      formStatus.textContent = 'Estamos enviando tu respuesta...';
+
+      try {
+
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(datos)
+        });
+
+        if (!response.ok) {
+          throw new Error('No se pudo enviar la respuesta.');
+        }
+
+        const result = await response.json();
+
+        if (result.ok !== true) {
+          throw new Error(result.error || 'No se pudo guardar.');
+        }
+
+        form.style.display = 'none';
+
+        document.getElementById('success-message').style.display = 'block';
+
+        document.getElementById('success-text').textContent =
+          asistencia === 'Sí'
+            ? '¡Te esperamos el sábado 17 de octubre a las 18:00 hs!'
+            : 'Gracias por avisarnos. ¡Nos vemos en otra oportunidad!';
+
+      } catch (error) {
+
+        formStatus.textContent =
+          'No pudimos confirmar el envío. Probá nuevamente.';
+
+      } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar confirmación →';
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+
