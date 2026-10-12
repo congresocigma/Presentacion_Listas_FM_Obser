@@ -674,6 +674,81 @@
   </section>
 
 
+  
+<!-- GALERÍA DE FOTOS -->
+
+<section class="galeria" id="galeria">
+
+  <div class="section-container">
+
+    <div class="reveal">
+      <p class="section-label">Nuestra historia</p>
+
+      <h2 class="section-title">
+        Un camino que<br>
+        construimos juntos.
+      </h2>
+
+      <p class="section-text">
+        Cada encuentro, cada proyecto y cada desafío
+        forman parte de una historia que seguimos
+        escribiendo entre todos.
+      </p>
+    </div>
+
+    <div class="galeria-grid reveal">
+
+      <img src="./foto1.jpg" alt="Franja Morada Observatorio">
+
+      <img src="./foto2.jpg" alt="Actividades de la agrupación">
+
+      <img src="./foto3.jpg" alt="Encuentros de Franja Morada">
+
+      <img src="./foto4.jpg" alt="Nuestro equipo">
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  .galeria {
+    background: #FFFFFF;
+  }
+
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 45px;
+  }
+
+  .galeria-grid img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform .3s ease;
+  }
+
+  .galeria-grid img:hover {
+    transform: scale(1.025);
+  }
+
+  @media (max-width: 600px) {
+    .galeria-grid {
+      gap: 10px;
+    }
+
+    .galeria-grid img {
+      height: 170px;
+      border-radius: 9px;
+    }
+  }
+</style>
+
+
   <!-- CONFIRMACIÓN -->
 
   <section class="confirmacion" id="confirmar">
